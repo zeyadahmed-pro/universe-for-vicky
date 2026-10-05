@@ -1,0 +1,690 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#050308" />
+  <meta
+    name="description"
+    content="VICKY // THE VENOM ARCHIVE — a cinematic interactive universe."
+  />
+
+  <title>VICKY // THE VENOM ARCHIVE</title>
+
+  <!-- Everything is in the same folder -->
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="mobile-fixes.css" />
+</head>
+
+<body>
+
+  <!-- =========================
+       WARNING SCREEN
+  ========================== -->
+  <div id="warning" class="screen warning-screen">
+    <div class="warning-bg" aria-hidden="true"></div>
+
+    <div class="warning-content">
+      <p class="warning-small">ARCHIVE SAFETY PROTOCOL</p>
+
+      <h1>I TOLD YOU</h1>
+      <h2>BE CAREFUL</h2>
+
+      <p class="warning-copy">
+        Some archives are better left unopened.
+        This one was made with love.
+      </p>
+
+      <button
+        id="warningContinue"
+        class="ghost-btn"
+        type="button"
+      >
+        ENTER WITH LOVE
+      </button>
+    </div>
+  </div>
+
+
+  <!-- =========================
+       LOGIN SCREEN
+  ========================== -->
+  <div id="login" class="screen login-screen hidden">
+
+    <div class="login-orbit" aria-hidden="true"></div>
+
+    <div class="login-container glass">
+
+      <div class="eyebrow">
+        VICKY // PRIVATE ARCHIVE
+      </div>
+
+      <div class="lock-mark">✦</div>
+
+      <h1>THE VENOM ARCHIVE</h1>
+
+      <p>
+        This little universe is a love letter in disguise.
+        Enter the archive key to step inside.
+      </p>
+
+      <form id="loginForm">
+
+        <label for="password">
+          ARCHIVE KEY
+        </label>
+
+        <div class="secret-input">
+
+          <span>⌁</span>
+
+          <input
+            id="password"
+            type="password"
+            autocomplete="off"
+            placeholder="••••••••"
+            aria-label="Archive key"
+          />
+
+          <button
+            id="showPassword"
+            class="password-toggle"
+            type="button"
+            aria-label="Show archive key"
+          >
+            SHOW
+          </button>
+
+        </div>
+
+        <button
+          type="submit"
+          class="primary-btn"
+        >
+          UNLOCK ARCHIVE
+        </button>
+
+        <div
+          id="loginError"
+          class="error-text"
+          aria-live="polite"
+        ></div>
+
+      </form>
+
+      <p class="login-hint">
+        Tip: the key is
+        <strong>myvicky</strong>
+        — because some things should be easy to find.
+      </p>
+
+      <div class="login-footer">
+        SYSTEM // ENCRYPTED · SIGNAL // STABLE
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- =========================
+       LOADING SCREEN
+  ========================== -->
+  <div id="loading" class="screen loading-screen hidden">
+
+    <div class="loading-core"></div>
+
+    <div class="loading-title">
+      ESTABLISHING CONNECTION
+    </div>
+
+    <div class="loading-bar">
+      <span id="loadingBar"></span>
+    </div>
+
+    <div id="loadingStatus">
+      Gathering every soft little memory...
+    </div>
+
+  </div>
+
+
+  <!-- =========================
+       MAIN WORLD
+  ========================== -->
+  <main id="world" class="world hidden">
+
+    <canvas id="space"></canvas>
+
+    <div
+      class="world-noise"
+      aria-hidden="true"
+    ></div>
+
+    <div
+      class="vignette"
+      aria-hidden="true"
+    ></div>
+
+
+    <!-- HEADER -->
+    <header class="archive-header">
+
+      <button
+        id="archiveLogo"
+        class="archive-logo"
+        type="button"
+        aria-label="Return to core"
+      >
+        <span>VICKY</span>
+        <b>//</b>
+        <span>VENOM ARCHIVE</span>
+      </button>
+
+      <div class="archive-status">
+        <i></i>
+        <span id="statusText">
+          CONNECTION STABLE
+        </span>
+      </div>
+
+    </header>
+
+
+    <!-- ACCESSIBILITY -->
+    <a
+      class="skip-link"
+      href="#explore"
+    >
+      Skip to the love notes
+    </a>
+
+
+    <!-- =========================
+         HERO / 3D UNIVERSE
+    ========================== -->
+    <section
+      class="hero-space"
+      id="universe"
+      aria-label="3D archive universe"
+    >
+
+      <div
+        id="threeRoot"
+        class="three-root"
+      ></div>
+
+
+      <!-- CORE TEXT -->
+      <div class="core-overlay">
+
+        <div class="core-label">
+          VENOM CORE
+        </div>
+
+        <div
+          class="core-sub"
+          id="coreSub"
+        >
+          A signal built from kindness, care,
+          beautiful eyes &amp; the energy you bring.
+        </div>
+
+      </div>
+
+
+      <!-- CORE -->
+      <button
+        id="core"
+        class="core-hit"
+        type="button"
+        aria-label="Interact with Venom Core"
+      ></button>
+
+
+      <!-- ENERGY VEINS -->
+      <div class="vein vein-a"></div>
+      <div class="vein vein-b"></div>
+      <div class="vein vein-c"></div>
+
+
+      <!-- FLOATING WORDS -->
+      <div class="floating-word word-a">
+        KINDNESS
+      </div>
+
+      <div class="floating-word word-b">
+        CARE
+      </div>
+
+      <div class="floating-word word-c">
+        EYES
+      </div>
+
+      <div class="floating-word word-d">
+        MUSIC
+      </div>
+
+      <div class="floating-word word-e">
+        ENERGY
+      </div>
+
+
+      <!-- HERO HINT -->
+      <div class="hero-hint">
+        <span>START HERE</span>
+        <b>
+          Tap the glowing core, then explore a circle.
+        </b>
+      </div>
+
+
+      <!-- =========================
+           PORTALS
+      ========================== -->
+
+      <button
+        class="portal portal-memory"
+        type="button"
+        data-panel="memory"
+        aria-label="Open memories"
+      >
+        <span>MEMORIES</span>
+        <b>01</b>
+      </button>
+
+
+      <button
+        class="portal portal-story"
+        type="button"
+        data-panel="story"
+        aria-label="Open our story"
+      >
+        <span>OUR STORY</span>
+        <b>02</b>
+      </button>
+
+
+      <button
+        class="portal portal-her"
+        type="button"
+        data-panel="her"
+        aria-label="Open Vicky's profile"
+      >
+        <span>HER</span>
+        <b>03</b>
+      </button>
+
+
+      <button
+        class="portal portal-music"
+        type="button"
+        data-panel="music"
+        aria-label="Open music"
+      >
+        <span>MUSIC</span>
+        <b>04</b>
+      </button>
+
+
+      <button
+        class="portal portal-secret"
+        type="button"
+        data-panel="secret"
+        aria-label="Open secret layer"
+      >
+        <span>SECRET</span>
+        <b>05</b>
+      </button>
+
+    </section>
+
+
+    <!-- =========================
+         ARCHIVE CONTENT
+    ========================== -->
+    <section
+      class="archive-scroll"
+      id="explore"
+    >
+
+      <div class="section-grid">
+
+
+        <!-- CONNECTION -->
+        <article
+          class="archive-card glass"
+          data-reveal="1"
+        >
+
+          <span class="card-index">
+            01
+          </span>
+
+          <h2>
+            THE CONNECTION
+          </h2>
+
+          <p>
+            03 SEPTEMBER — the first signal.
+            One conversation became a reason to smile,
+            and the beginning of something worth preserving.
+          </p>
+
+          <button
+            class="text-btn"
+            data-panel="story"
+            type="button"
+          >
+            READ OUR STORY ↗
+          </button>
+
+        </article>
+
+
+        <!-- SHIFT -->
+        <article
+          class="archive-card glass"
+          data-reveal="2"
+        >
+
+          <span class="card-index">
+            02
+          </span>
+
+          <h2>
+            THE SHIFT
+          </h2>
+
+          <p>
+            24 SEPTEMBER — the moment a beautiful
+            connection became official, and ordinary days
+            started feeling a little more special.
+          </p>
+
+          <button
+            class="text-btn"
+            data-panel="memory"
+            type="button"
+          >
+            OPEN THE MEMORIES ↗
+          </button>
+
+        </article>
+
+
+        <!-- VENOM -->
+        <article
+          class="archive-card glass"
+          data-reveal="3"
+        >
+
+          <span class="card-index">
+            03
+          </span>
+
+          <h2>
+            THE VENOM
+          </h2>
+
+          <p>
+            Not danger. Just a playful name for a feeling
+            powerful enough to stay in the system:
+            missing you, choosing you, loving you.
+          </p>
+
+          <button
+            id="venomButton"
+            class="text-btn"
+            type="button"
+          >
+            FEEL THE VENOM ↗
+          </button>
+
+        </article>
+
+      </div>
+
+
+      <!-- MANIFESTO -->
+      <section class="archive-manifesto glass">
+
+        <div>
+
+          <span class="eyebrow">
+            ARCHIVE MANIFEST
+          </span>
+
+          <h2>
+            Some people deserve an entire universe.
+          </h2>
+
+        </div>
+
+        <p>
+          Take your time. Tap what glows,
+          open every circle, and let this little archive
+          remind you how loved you are.
+        </p>
+
+      </section>
+
+    </section>
+
+
+    <!-- =========================
+         MUSIC DOCK
+    ========================== -->
+    <aside
+      class="music-dock glass"
+      aria-label="Persistent music player"
+    >
+
+      <div class="music-meta">
+
+        <span>
+          NOW PLAYING
+        </span>
+
+        <strong id="trackName">
+          COLD BLOODED — SPED UP
+        </strong>
+
+      </div>
+
+      <div class="music-controls">
+
+        <button
+          id="musicToggle"
+          type="button"
+          class="icon-btn"
+          aria-label="Play or pause"
+        >
+          ▶
+        </button>
+
+        <button
+          id="musicMute"
+          type="button"
+          class="icon-btn"
+          aria-label="Mute"
+        >
+          🔊
+        </button>
+
+        <input
+          id="musicVolume"
+          type="range"
+          min="0"
+          max="1"
+          step="0.01"
+          value="0.45"
+          aria-label="Volume"
+        />
+
+      </div>
+
+      <div class="audio-line">
+        <span id="audioProgress"></span>
+      </div>
+
+    </aside>
+
+
+    <!-- =========================
+         HUD
+    ========================== -->
+    <div class="progress-hud glass">
+
+      <span>
+        DISCOVERIES
+      </span>
+
+      <b id="discoveryCount">
+        0 / 10
+      </b>
+
+    </div>
+
+
+    <!-- SECRET TRIGGERS -->
+    <button
+      id="vickyTrigger"
+      class="vicky-trigger"
+      type="button"
+      aria-label="Vicky secret trigger"
+    >
+      V
+    </button>
+
+
+    <button
+      id="pinkStar"
+      class="pink-star"
+      type="button"
+      aria-label="Hidden star"
+    >
+      ✦
+    </button>
+
+
+    <button
+      id="soundToggle"
+      class="sound-toggle"
+      type="button"
+      aria-pressed="false"
+    >
+      SOUND ON
+    </button>
+
+  </main>
+
+
+  <!-- =========================
+       PANEL
+  ========================== -->
+  <div
+    id="panel"
+    class="panel hidden"
+    aria-hidden="true"
+  >
+
+    <div class="panel-backdrop"></div>
+
+    <section
+      class="panel-window glass"
+      role="dialog"
+      aria-modal="true"
+    >
+
+      <button
+        class="panel-close"
+        type="button"
+        aria-label="Close"
+      >
+        ×
+      </button>
+
+      <div id="panel-content"></div>
+
+    </section>
+
+  </div>
+
+
+  <!-- =========================
+       TOAST
+  ========================== -->
+  <div
+    id="toast"
+    class="toast"
+    aria-live="polite"
+  ></div>
+
+
+  <!-- =========================
+       FINALE
+  ========================== -->
+  <div
+    id="finale"
+    class="finale hidden"
+  >
+
+    <div class="finale-stars"></div>
+
+    <div id="finalePhase">
+      SIGNAL LOST…
+    </div>
+
+    <h1 id="finaleName">
+      VICTORIA
+    </h1>
+
+    <h2 id="finaleNickname">
+      VICKY
+    </h2>
+
+    <p id="finaleMessage"></p>
+
+    <button
+      id="replay"
+      class="ghost-btn"
+      type="button"
+    >
+      REPLAY ARCHIVE
+    </button>
+
+  </div>
+
+
+  <!-- =========================
+       AUDIO
+       SAME FOLDER
+  ========================== -->
+
+  <audio
+    id="ambientAudio"
+    preload="metadata"
+    loop
+    src="PRETTYMUCH - Eyes Off You (Audio) - PrettyMuchVEVO.mp3"
+  ></audio>
+
+  <audio
+    id="coldAudio"
+    preload="metadata"
+    src="COLD BLOODED - Sped Up - Chris Grey.mp3"
+  ></audio>
+
+
+  <!-- =========================
+       JAVASCRIPT
+       SAME FOLDER
+  ========================== -->
+
+  <script src="config.js"></script>
+  <script src="world.js"></script>
+  <script src="audio.js"></script>
+  <script src="secrets.js"></script>
+  <script src="main.js"></script>
+
+</body>
+</html>

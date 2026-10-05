@@ -1,0 +1,287 @@
+/* Focused responsive corrections layered over the original archive styles. */
+@media (max-width: 850px) {
+  .panel {
+    padding: max(12px, env(safe-area-inset-top)) 12px max(12px, env(safe-area-inset-bottom));
+  }
+
+  .panel-window {
+    width: min(850px, 100%);
+    max-height: calc(100dvh - 64px);
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+
+  .portal {
+    width: clamp(92px, 13vw, 112px);
+    height: clamp(92px, 13vw, 112px);
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  .music-dock {
+    width: min(650px, calc(100vw - 24px));
+    gap: 12px;
+    padding-bottom: max(10px, env(safe-area-inset-bottom));
+  }
+
+  .icon-btn {
+    width: 44px;
+    height: 44px;
+    flex: 0 0 44px;
+  }
+
+  .vicky-trigger,
+  .pink-star {
+    min-width: 44px;
+  }
+
+  .music-controls input {
+    min-height: 44px;
+  }
+
+  .progress-hud,
+  .sound-toggle,
+  .vicky-trigger,
+  .pink-star,
+  .panel-close,
+  .ghost-btn,
+  .primary-btn,
+  .text-btn {
+    min-height: 44px;
+  }
+
+  .archive-card,
+  .archive-manifesto,
+  .panel-window,
+  .login-container,
+  .warning-content,
+  .finale {
+    overflow-wrap: anywhere;
+  }
+
+  .finale {
+    padding: 24px;
+    overflow-y: auto;
+  }
+
+  .finale h1,
+  .finale h2,
+  .finale p {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+}
+
+@media (max-width: 520px) {
+  .hero-space {
+    min-height: max(640px, 100svh);
+  }
+
+  .portal {
+    width: 84px;
+    height: 84px;
+    font-size: 8px;
+  }
+
+  .portal-memory,
+  .portal-story {
+    left: max(8px, env(safe-area-inset-left));
+  }
+
+  .portal-her,
+  .portal-music {
+    right: max(8px, env(safe-area-inset-right));
+  }
+
+  .pink-star {
+    top: max(10px, env(safe-area-inset-top));
+    right: max(10px, env(safe-area-inset-right));
+    bottom: auto;
+    left: auto;
+  }
+
+  .portal-secret {
+    bottom: 2%;
+  }
+
+  .hero-hint {
+    width: min(88%, 340px);
+    bottom: 19%;
+  }
+
+  .hero-hint b {
+    display: block;
+    white-space: normal;
+  }
+
+  .music-dock {
+    min-height: 64px;
+    gap: 8px;
+    padding: 8px 10px;
+  }
+
+  .music-controls {
+    gap: 6px;
+    flex: 0 0 auto;
+  }
+
+  .music-controls input {
+    width: clamp(56px, 18vw, 80px);
+    min-width: 48px;
+  }
+
+  .music-meta {
+    display: block;
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  .music-meta strong {
+    font-size: 9px;
+  }
+
+  .panel-window {
+    padding: 54px 18px 24px;
+    border-radius: 12px;
+  }
+
+  .panel-window h2 {
+    font-size: clamp(24px, 7vw, 34px);
+    overflow-wrap: anywhere;
+  }
+
+  .memory-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .memory-grid > div {
+    min-height: auto;
+    padding: 18px;
+  }
+
+  .archive-scroll {
+    padding-top: 80px;
+    padding-bottom: 190px;
+  }
+
+  .archive-card {
+    min-height: 0;
+    padding: 24px;
+  }
+
+  .archive-manifesto {
+    padding: 24px;
+  }
+
+  .finale h1 {
+    font-size: clamp(36px, 10vw, 50px);
+  }
+
+  .finale h2 {
+    font-size: clamp(20px, 6vw, 27px);
+  }
+
+  .finale {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: clamp(14px, 3vh, 24px);
+    height: 100dvh;
+    min-height: 100dvh;
+    padding: max(20px, env(safe-area-inset-top)) 20px max(20px, env(safe-area-inset-bottom));
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  .finale::before {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  .finale-stars {
+    z-index: 0;
+  }
+
+  .finale > :not(.finale-stars) {
+    position: relative;
+    z-index: 1;
+  }
+
+  .finale h1,
+  .finale h2,
+  .finale p,
+  .finale #finalePhase,
+  .finale .ghost-btn {
+    position: relative;
+    inset: auto;
+    transform: none;
+    margin: 0;
+  }
+
+  .finale p {
+    width: min(650px, 100%);
+  }
+
+  .finale h1.visible,
+  .finale h2.visible,
+  .finale p.visible {
+    animation: finaleRevealMobile 1.2s both;
+  }
+}
+
+@media (max-width: 380px) {
+  .portal {
+    width: 76px;
+    height: 76px;
+    font-size: 7px;
+  }
+
+  .music-controls input {
+    width: 50px;
+  }
+
+  .music-meta strong {
+    max-width: 115px;
+  }
+
+  .music-dock {
+    gap: 5px;
+    padding-right: 7px;
+    padding-left: 7px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .portal,
+  .portal::before,
+  .portal::after,
+  .floating-word,
+  .hero-hint,
+  .vein,
+  .warning-bg,
+  .loading-core,
+  .finale-stars {
+    animation: none !important;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+  }
+}
+
+@keyframes finaleRevealMobile {
+  from {
+    transform: translateY(20px);
+    filter: blur(12px);
+  }
+
+  to {
+    transform: none;
+    filter: none;
+  }
+}
